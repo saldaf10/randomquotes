@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask
 import os
 import random
 
@@ -18,7 +18,7 @@ phrases = [
 @app.route('/')
 def get_random_quote():
     phrase = random.choice(phrases)
-    container_id = os.uname()[1] 
+    container_id = os.uname()[1]
     return f"{phrase} - Container Id: {container_id}"
 
 if __name__ == '__main__':
