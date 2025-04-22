@@ -15,13 +15,13 @@ jobs:
 
       - name: Docker Login
         env:
-          DOCKER_USER: ${{ secrets.DOCKERHUB_USER }}
-          DOCKER_PASS: ${{ secrets.DOCKERHUB_PASS }}
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
         run: |
           echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
 
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag camazog1/express-randomquotes:latest
+        run: docker build . --file Dockerfile --tag saldaf/express-randomquotes:latest
 
       - name: Push Docker image
-        run: docker push camazog1/express-randomquotes:latest
+        run: docker push saldaf/express-randomquotes:latest
